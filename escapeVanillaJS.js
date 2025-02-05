@@ -42,7 +42,7 @@ function findMostRecentBook(books) {
 
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
-    const intersection = new Set([...setA]);
+    const intersection = new Set([...setA].filter(item => setB.has(item)))
     return intersection;
 }
 
