@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("room1Result").textContent = `The key to the next room is: ${mostRecentBook.title}`;
             });
     });
+})
 
     document.getElementById("solveRoom2").addEventListener("click", () => {
         const jsConcepts = new Set(['closure', 'scope', 'hoisting','await','promises']);
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     // 🪲 Bug: Asynchronous function ?
-    document.getElementById("solveRoom3").addEventListener("click", () => {
+    document.getElementById("solveRoom3").addEventListener("click",async => {
         fetch('directions.json') 
             .then(response => response.json())
             .then(directions => {
@@ -30,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     .then(message => {
                         // 🪲 Bug: Incorrect method
                         document.getElementById("room3Result").innerHTML = message;
-                    });
+                    })
+                })
             });
-    });
-});
+    
+
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
